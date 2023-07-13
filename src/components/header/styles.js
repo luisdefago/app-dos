@@ -19,6 +19,10 @@ export const styles = StyleSheet.create({
     },
     title: {
         fontSize: 25,
-        color: COLORS.text,
+        fontWeight: 'bold',
+        color: COLORS.white,
+        textShadowColor: 'rgba(0,0, 0, 0.75)',
+        textShadowOffset: { width: -1, height: 1 },
+        textShadowRadius: 6,
     },
 });
