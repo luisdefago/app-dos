@@ -5,18 +5,17 @@ export const styles = StyleSheet.create({
     container: {
         marginTop: StatusBar.currentHeight,
         backgroundColor: COLORS.primary,
-        padding: 20,
+        height: 65,
         justifyContent: 'center',
         alignItems: 'center',
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
-            height: 4,
+            height: 2,
         },
-        shadowOpacity: 0.3,
-        shadowRadius: 4.65,
-
-        elevation: 8,
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+        elevation: 4,
     },
     title: {
         fontSize: 25,
