@@ -1,3 +1,5 @@
+import { TextInput, View } from 'react-native';
+
 import { styles } from './styles';
 
 const Input = ({ borderColor, onHandleFocus, onHandleBlur, onHandleChangeText, ...props }) => {
