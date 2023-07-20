@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 export default function useOrientation() {
     const [screenOrientation, setScreenOrientation] = useState(
-        ScreenOrientation.Orientation.PORTRAIT_DOWN
+        ScreenOrientation.Orientation.PORTRAIT_UP
     );
 
     useEffect(() => {
@@ -13,11 +13,12 @@ export default function useOrientation() {
         };
 
         const initScreenOrientation = async () => {
-            const currentOrientation = await ScreenOrientation.getOrientationAsync;
+            const currentOrientation = await ScreenOrientation.getOrientationAsync();
             setScreenOrientation(currentOrientation);
         };
 
-        const screenOrientationListener = ScreenOrientation.addOrientationChangeListener();
+        const screenOrientationListener =
+            ScreenOrientation.addOrientationChangeListener(orientationChange);
 
         initScreenOrientation();
 

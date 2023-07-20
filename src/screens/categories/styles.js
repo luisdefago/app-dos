@@ -13,4 +13,7 @@ export const styles = StyleSheet.create({
         marginHorizontal: 15,
         marginTop: 10,
     },
+    categoryItemLandscape: {
+        height: 100,
+    },
 });

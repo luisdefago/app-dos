@@ -2,16 +2,11 @@ import { styles } from './styles';
 import { SafeAreaView, FlatList, useWindowDimensions } from 'react-native';
 import CATEGORIES from '../../constants/data/categories.json';
 import { CategoryItem } from '../../components';
+import { ORIENTATION } from '../../constants/orientation';
+import useOrientation from '../../hooks/useOrientation';
 
 const Categories = ({ onSelectCategory }) => {
-    const { width, height, scale, fontScale } = useWindowDimensions();
-
-    console.warn({
-        width,
-        height,
-        scale,
-        fontScale,
-    });
+    const orientation = useOrientation();
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
@@ -19,7 +14,15 @@ const Categories = ({ onSelectCategory }) => {
                 contentContainerStyle={styles.listCategory}
                 data={CATEGORIES}
                 renderItem={({ item }) => (
-                    <CategoryItem {...item} onSelectCategory={onSelectCategory} />
+                    <CategoryItem
+                        {...item}
+                        onSelectCategory={onSelectCategory}
+                        style={
+                            orientation === ORIENTATION.LANDSCAPE
+                                ? styles.categoryItemLandscape
+                                : {}
+                        }
+                    />
                 )}
                 keyExtractor={(item) => item.id}
             />
