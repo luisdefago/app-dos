@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     },
     title: {
         fontSize: 25,
-        fontWeight: 'bold',
+        fontFamily: 'Inter-Bold',
         color: COLORS.white,
         textShadowColor: 'rgba(0,0, 0, 0.75)',
         textShadowOffset: { width: -1, height: 1 },

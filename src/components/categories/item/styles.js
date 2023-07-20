@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     },
     categoyName: {
         fontSize: 20,
-        fontWeight: 'bold',
+        fontFamily: 'Inter-Medium',
         color: COLORS.white,
         padding: 20,
         textShadowColor: 'rgba(0,0, 0, 0.75)',
