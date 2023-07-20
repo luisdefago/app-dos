@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { COLORS } from '../../themes';
 import { Ionicons } from '@expo/vector-icons';
 import PRODUCTS from '../../constants/data/products.json';
+import { ImageBackground } from 'react-native';
 
 const Products = ({ onHandleGoBack, categoryId }) => {
     const [search, setSearch] = useState('');
@@ -58,8 +59,29 @@ const Products = ({ onHandleGoBack, categoryId }) => {
             <FlatList
                 style={styles.products}
                 data={search.length > 0 ? filteredProducts : filteredProductsByCategory}
-                renderItem={({ item }) => <Text>{item.name}</Text>}
-                keyExtractor={(item) => item.id.toString}
+                renderItem={({ item }) => (
+                    <TouchableOpacity style={styles.productContainer}>
+                        <ImageBackground
+                            source={{ uri: item.image }}
+                            style={[styles.productImage, { backgroundColor: COLORS.primary }]}
+                            resizeMethod="resize"
+                            resizeMode="contain"
+                        />
+                        <View style={styles.productDetail}>
+                            <Text style={styles.productName} numberOfLines={1} ellipsizeMode="tail">
+                                {item.name}
+                            </Text>
+                            <Text
+                                style={
+                                    styles.productPrice
+                                }>{`${item.currency.code} ${item.price}`}</Text>
+                        </View>
+                    </TouchableOpacity>
+                )}
+                contentContainerStyle={styles.productsContent}
+                keyExtractor={(item) => item.id.toString()}
+                numColumns={2}
+                showsVerticalScrollIndicator={false}
             />
             {filteredProducts.length === 0 && search.length > 0 && (
                 <View style={styles.notFound}>
