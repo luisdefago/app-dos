@@ -1,10 +1,11 @@
 import { View, SafeAreaView, StyleSheet, Text, Button, ActivityIndicator } from 'react-native';
-import { Header } from './components';
-import Categories from './screens/categories';
-import { useState } from 'react';
-import { Products } from './screens';
+// import { Header } from './components';
+// import Categories from './screens/categories';
+// import { useState } from 'react';
+// import { Products } from './screens';
 import { useFonts } from 'expo-font';
 import { COLORS } from './themes';
+import RootNavigator from './navigation';
 
 export default function App() {
     const [loaded] = useFonts({
@@ -14,19 +15,19 @@ export default function App() {
         'Inter-Light': require('../assets/fonts/Inter-Light.ttf'),
     });
 
-    const [isCategorySelect, SetIsCategorySelect] = useState(false);
-    const [selectedCategory, SetSelectedCategory] = useState(null);
+    // const [isCategorySelect, SetIsCategorySelect] = useState(false);
+    // const [selectedCategory, SetSelectedCategory] = useState(null);
 
-    const headerTitle = isCategorySelect ? 'Productos' : 'Categorias';
+    // const headerTitle = isCategorySelect ? 'Productos' : 'Categorias';
 
-    const onHandleSelectCagergory = (categoryId) => {
-        SetSelectedCategory(categoryId);
-        SetIsCategorySelect(!isCategorySelect);
-    };
-    const onHandleNavigate = (categoryId) => {
-        SetIsCategorySelect(!isCategorySelect);
-        SetSelectedCategory(null);
-    };
+    // const onHandleSelectCagergory = (categoryId) => {
+    //     SetSelectedCategory(categoryId);
+    //     SetIsCategorySelect(!isCategorySelect);
+    // };
+    // const onHandleNavigate = (categoryId) => {
+    //     SetIsCategorySelect(!isCategorySelect);
+    //     SetSelectedCategory(null);
+    // };
 
     if (!loaded) {
         return (
@@ -37,14 +38,7 @@ export default function App() {
     }
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.container}>
-                <Header title={headerTitle} />
-                {isCategorySelect ? (
-                    <Products onHandleGoBack={onHandleNavigate} categoryId={selectedCategory} />
-                ) : (
-                    <Categories onSelectCategory={onHandleSelectCagergory} />
-                )}
-            </View>
+            <RootNavigator />
         </SafeAreaView>
     );
 }
