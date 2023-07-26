@@ -13,15 +13,6 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 5,
     },
-    goBack: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingVertical: 10,
-    },
-    goBackText: {
-        fontSize: 14,
-        color: COLORS.text,
-    },
     products: {
         flex: 1,
     },

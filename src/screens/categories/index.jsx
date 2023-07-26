@@ -8,7 +8,7 @@ import useOrientation from '../../hooks/useOrientation';
 const Categories = ({ navigation }) => {
     const orientation = useOrientation();
     const onSelectCategory = ({ categoryId, color }) => {
-        navigation.navigate('Products', { categoryId, color });
+        navigation.navigate('Productos', { categoryId, color });
     };
     return (
         <SafeAreaView style={styles.container}>
