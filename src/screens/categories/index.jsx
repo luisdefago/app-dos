@@ -7,8 +7,8 @@ import useOrientation from '../../hooks/useOrientation';
 
 const Categories = ({ navigation }) => {
     const orientation = useOrientation();
-    const onSelectCategory = ({ categoryId, color }) => {
-        navigation.navigate('Productos', { categoryId, color });
+    const onSelectCategory = ({ categoryId, color, name }) => {
+        navigation.navigate('Productos', { categoryId, color, name });
     };
     return (
         <SafeAreaView style={styles.container}>
@@ -19,7 +19,13 @@ const Categories = ({ navigation }) => {
                 renderItem={({ item }) => (
                     <CategoryItem
                         {...item}
-                        onSelectCategory={onSelectCategory}
+                        onSelectCategory={() =>
+                            onSelectCategory({
+                                categoryId: item.id,
+                                color: item.backgroundColor,
+                                name: item.name,
+                            })
+                        }
                         style={
                             orientation === ORIENTATION.LANDSCAPE
                                 ? styles.categoryItemLandscape
