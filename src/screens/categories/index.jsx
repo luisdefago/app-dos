@@ -5,8 +5,11 @@ import { CategoryItem } from '../../components';
 import { ORIENTATION } from '../../constants/orientation';
 import useOrientation from '../../hooks/useOrientation';
 
-const Categories = ({ onSelectCategory }) => {
+const Categories = ({ navigation }) => {
     const orientation = useOrientation();
+    const onSelectCategory = ({ categoryId, color }) => {
+        navigation.navigate('Products', { categoryId, color });
+    };
     return (
         <SafeAreaView style={styles.container}>
             <FlatList

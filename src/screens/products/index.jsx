@@ -7,7 +7,8 @@ import { Ionicons } from '@expo/vector-icons';
 import PRODUCTS from '../../constants/data/products.json';
 import { ImageBackground } from 'react-native';
 
-const Products = ({ onHandleGoBack, categoryId }) => {
+const Product = ({ navigation, route }) => {
+    const { categoryId, color } = route.params;
     const [search, setSearch] = useState('');
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [borderColor, setBorderColor] = useState(COLORS.primary);
@@ -19,16 +20,15 @@ const Products = ({ onHandleGoBack, categoryId }) => {
     };
     const onHandleFocus = () => {};
     const filteredProductsByCategory = PRODUCTS.filter(
-        (product) => product.categoryId == categoryId
+        (product) => product.categoryId === categoryId
     );
 
     const filterBySearch = (query) => {
-        let updatedProducList = [...filteredProductsByCategory];
+        let updatedProducList = [...filteredProductsByCategory]; // Crear una copia independiente
 
         updatedProducList = updatedProducList.filter((product) => {
             return product.name.toLocaleLowerCase().indexOf(query.toLocaleLowerCase()) !== -1;
         });
-
         setFilteredProducts(updatedProducList);
     };
 
@@ -39,7 +39,7 @@ const Products = ({ onHandleGoBack, categoryId }) => {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.goBack} onPress={onHandleGoBack}>
+            <TouchableOpacity style={styles.goBack}>
                 <Ionicons name="arrow-back-sharp" size={30} color={COLORS.black} />
                 <Text style={[styles.goBackText, COLORS.text]}>Volver</Text>
             </TouchableOpacity>
@@ -63,7 +63,7 @@ const Products = ({ onHandleGoBack, categoryId }) => {
                     <TouchableOpacity style={styles.productContainer}>
                         <ImageBackground
                             source={{ uri: item.image }}
-                            style={[styles.productImage, { backgroundColor: COLORS.primary }]}
+                            style={[styles.productImage, { backgroundColor: color }]}
                             resizeMethod="resize"
                             resizeMode="contain"
                         />
@@ -92,4 +92,4 @@ const Products = ({ onHandleGoBack, categoryId }) => {
     );
 };
 
-export default Products;
+export default Product;

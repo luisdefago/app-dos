@@ -7,7 +7,7 @@ const CategoryItem = ({ id, name, backgroundColor, backgroundImage, onSelectCate
 
     return (
         <TouchableHighlight
-            onPress={() => onSelectCategory(id)}
+            onPress={() => onSelectCategory({ categoryId: id, color: backgroundColor })}
             style={[styles.container, { backgroundColor }, style]}
             underlayColor={COLORS.primary}>
             <ImageBackground
