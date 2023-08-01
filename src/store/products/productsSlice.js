@@ -5,10 +5,10 @@ const initialState = {
     data: PRODUCTS,
 };
 
-const productsSlices = createSlice({
+const productsSlice = createSlice({
     name: 'products',
     initialState,
     reducers: {},
 });
 
-export default productsSlices.reducer;
+export default productsSlice.reducer;

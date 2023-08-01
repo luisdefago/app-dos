@@ -4,7 +4,6 @@ import { Input } from '../../components';
 import { useState } from 'react';
 import { COLORS } from '../../themes';
 import { Ionicons } from '@expo/vector-icons';
-import PRODUCTS from '../../constants/data/products.json';
 import { useSelector } from 'react-redux';
 
 const Product = ({ navigation, route }) => {
@@ -25,7 +24,7 @@ const Product = ({ navigation, route }) => {
     );
 
     const filterBySearch = (query) => {
-        let updatedProducList = [...filteredProductsByCategory]; // Crear una copia independiente
+        let updatedProducList = [...filteredProductsByCategory];
 
         updatedProducList = updatedProducList.filter((product) => {
             return product.name.toLocaleLowerCase().indexOf(query.toLocaleLowerCase()) !== -1;
