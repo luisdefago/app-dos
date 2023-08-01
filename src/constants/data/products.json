@@ -96,7 +96,7 @@
     },
     {
         "id": 4,
-        "categoryId": 3,
+        "categoryId": 4,
         "name": "Tribute Lounge Chair",
         "description": "For the home owner looking for the perfect dash of uniqueness, the colorful Tribute leather chairs will speak volumes of its owner's sense of style.",
         "price": 550,
@@ -122,7 +122,7 @@
     },
     {
         "id": 5,
-        "categoryId": 4,
+        "categoryId": 3,
         "name": "Samsung Galaxy Tab S8 Ultra",
         "description": "Samsung Galaxy Tab S8 Ultra 512GB",
         "price": 1350,

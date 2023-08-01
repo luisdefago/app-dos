@@ -48,16 +48,22 @@ export const styles = StyleSheet.create({
         fontFamily: 'Inter-Bold',
     },
     qty: {
-        fontSize: 12,
-        fontFamily: 'Inter-Regular',
+        color: COLORS.white,
+        fontSize: 15,
+        fontFamily: 'Inter-Bold',
+        backgroundColor: COLORS.primary,
+        paddingVertical: 5,
+        paddingHorizontal: 5,
+        borderRadius: 20,
     },
     stock: {
         fontSize: 12,
         fontFamily: 'Inter-Regular',
     },
     actionContainer: {
-        gap: 20,
+        gap: 15,
         flexDirection: 'row',
+        alignItems: 'center',
     },
     increaseButton: {
         width: 35,

@@ -3,7 +3,19 @@ import { styles } from './styles';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from '../../../themes';
 
-const CartItem = ({ id, categoryId, name, price, image, currency, quantity, stock, ...props }) => {
+const CartItem = ({
+    id,
+    categoryId,
+    name,
+    price,
+    image,
+    currency,
+    quantity,
+    stock,
+    onIncreaseCartItem,
+    onDecreaseCartItem,
+    onRemoveCartItem,
+}) => {
     return (
         <View style={styles.container}>
             <View style={styles.imageContainer}>
@@ -12,15 +24,22 @@ const CartItem = ({ id, categoryId, name, price, image, currency, quantity, stoc
             <View style={styles.detailContainer}>
                 <Text style={styles.name}>{name}</Text>
                 <Text style={styles.price}>{`${currency.code} ${price}`}</Text>
-                <Text style={styles.qty}>{`Cantidad: ${quantity} stock: ${stock}`}</Text>
+                <Text style={styles.stock}>{`stock: ${stock}`}</Text>
                 <View style={styles.actionContainer}>
-                    <TouchableOpacity style={styles.increaseButton} onPress={() => {}}>
+                    <TouchableOpacity
+                        style={styles.increaseButton}
+                        onPress={() => onIncreaseCartItem(id)}>
                         <Text style={styles.increaseButtonText}>+</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.decreaseButton} onPress={() => {}}>
+                    <Text style={styles.qty}>{`${quantity}`}</Text>
+                    <TouchableOpacity
+                        style={styles.decreaseButton}
+                        onPress={() => onDecreaseCartItem(id)}>
                         <Text style={styles.decreaseButtonText}>-</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => {}} style={styles.deleteButton}>
+                    <TouchableOpacity
+                        onPress={() => onRemoveCartItem(id)}
+                        style={styles.deleteButton}>
                         <Ionicons name="trash" size={22} color={COLORS.white} />
                     </TouchableOpacity>
                 </View>
