@@ -6,6 +6,11 @@ export const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: COLORS.background,
     },
+    containerLoader: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     listCategory: {
         gap: 15,
     },
