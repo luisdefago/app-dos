@@ -1,15 +1,15 @@
-import { View, Text, TouchableOpacity, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, ImageBackground } from 'react-native';
 import { styles } from './styles';
 import { Input } from '../../components';
 import { useState } from 'react';
 import { COLORS } from '../../themes';
 import { Ionicons } from '@expo/vector-icons';
-import { ImageBackground } from 'react-native';
+import PRODUCTS from '../../constants/data/products.json';
 import { useSelector } from 'react-redux';
 
 const Product = ({ navigation, route }) => {
     const { categoryId, color } = route.params;
-    const products = useSelector((state) => state.products);
+    const products = useSelector((state) => state.products.data);
     const [search, setSearch] = useState('');
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [borderColor, setBorderColor] = useState(COLORS.primary);
