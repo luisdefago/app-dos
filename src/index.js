@@ -1,4 +1,4 @@
-import { View, SafeAreaView, StyleSheet, Text, Button, ActivityIndicator } from 'react-native';
+import { View, SafeAreaView, StyleSheet, ActivityIndicator } from 'react-native';
 // import { Header } from './components';
 // import Categories from './screens/categories';
 // import { useState } from 'react';
@@ -6,6 +6,8 @@ import { View, SafeAreaView, StyleSheet, Text, Button, ActivityIndicator } from 
 import { useFonts } from 'expo-font';
 import { COLORS } from './themes';
 import RootNavigator from './navigation';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 export default function App() {
     const [loaded] = useFonts({
@@ -37,9 +39,11 @@ export default function App() {
         );
     }
     return (
-        <SafeAreaView style={styles.container}>
-            <RootNavigator />
-        </SafeAreaView>
+        <Provider store={store}>
+            <SafeAreaView style={styles.container}>
+                <RootNavigator />
+            </SafeAreaView>
+        </Provider>
     );
 }
 
