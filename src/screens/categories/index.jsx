@@ -20,7 +20,7 @@ const Categories = ({ navigation }) => {
             </View>
         );
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <FlatList
                 style={styles.CategoryContainer}
                 contentContainerStyle={styles.listCategory}
@@ -44,7 +44,7 @@ const Categories = ({ navigation }) => {
                 )}
                 keyExtractor={(item) => item.id}
             />
-        </SafeAreaView>
+        </View>
     );
 };
 
