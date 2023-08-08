@@ -86,7 +86,7 @@ const Cart = ({ navigation }) => {
             />
             <View style={styles.footerContainer}>
                 <TouchableOpacity onPress={onCreateOrder} style={styles.checkoutButton}>
-                    <Text style={styles.checkoutButtonText}>Checkout</Text>
+                    <Text style={styles.checkoutButtonText}>Comprar</Text>
                     <View style={styles.totalContainer}>
                         <Text style={styles.totalText}>Total:</Text>
                         <Text style={styles.totalPriceText}>USD {total}</Text>
