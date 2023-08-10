@@ -4,3 +4,5 @@ export { default as Input } from './input/index';
 export { default as CartItem } from './cart/item/index';
 export { default as MenuItem } from './menu-item/index';
 export { default as ImageSelector } from './image-selector/index';
+export { default as InputForm } from './input-form/index';
+export { default as label } from './label/index';

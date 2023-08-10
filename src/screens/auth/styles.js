@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
         maxWidth: 400,
         padding: 15,
         margin: 15,
-        minHeight: 350,
+        minHeight: 370,
         backgroundColor: COLORS.white,
         borderWidth: 1,
         borderColor: COLORS.primary,
@@ -40,7 +40,6 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 10,
     },
-    link: {},
     linkText: {
         fontFamily: 'Inter-Medium',
         fontSize: 14,
@@ -72,6 +71,6 @@ export const styles = StyleSheet.create({
         fontFamily: 'Inter-Bold',
         fontSize: 14,
         textAlign: 'center',
-        color: COLORS.white,
+        color: COLORS.text,
     },
 });
