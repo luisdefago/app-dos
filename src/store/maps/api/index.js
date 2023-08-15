@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
+
 import { GOOGLE_API_KEY, URL_BASE_GEOCODING } from '../../../constants/maps';
 
 export const mapsApi = createApi({
@@ -21,4 +22,4 @@ export const mapsApi = createApi({
     }),
 });
 
-export const { useGetGeocodingQuery } = mapsApi;
+export const { useLazyGetGeocodingQuery } = mapsApi;

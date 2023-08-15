@@ -2,8 +2,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
-import { Address, Profile, Settings } from '../screens';
+import { Address, CreateAddress, Profile, Settings } from '../screens';
 import { COLORS } from '../themes';
+import { Maps } from '../components';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,9 +30,41 @@ const SettingsNavigator = () => {
                     </TouchableOpacity>
                 ),
             })}>
-            <Stack.Screen name="Settings" component={Settings} />
-            <Stack.Screen name="Profile" component={Profile} />
-            <Stack.Screen name="Address" component={Address} />
+            <Stack.Screen
+                name="Settings"
+                component={Settings}
+                options={{
+                    headerTitle: 'Configuracion',
+                }}
+            />
+            <Stack.Screen
+                name="Profile"
+                component={Profile}
+                options={{
+                    headerTitle: 'Perfil',
+                }}
+            />
+            <Stack.Screen
+                name="CreateAddress"
+                component={CreateAddress}
+                options={{
+                    headerTitle: 'Agregar ubicacion',
+                }}
+            />
+            <Stack.Screen
+                name="Address"
+                component={Address}
+                options={{
+                    headerTitle: 'Ubicacion',
+                }}
+            />
+            <Stack.Screen
+                name="Maps"
+                component={Maps}
+                options={{
+                    headerTitle: 'Mapa',
+                }}
+            />
         </Stack.Navigator>
     );
 };

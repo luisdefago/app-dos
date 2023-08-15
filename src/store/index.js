@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
+
+import addressReducer from './address/address.slice';
 import cartReducer from './cart/cartSlice';
 import { categoriesApi } from './categories/api';
 import categoriesReducer from './categories/categoriesSlice';
@@ -17,6 +19,7 @@ export const store = configureStore({
         categories: categoriesReducer,
         cart: cartReducer,
         auth: authReducer,
+        address: addressReducer,
         [categoriesApi.reducerPath]: categoriesApi.reducer,
         [productsApi.reducerPath]: productsApi.reducer,
         [ordersApi.reducerPath]: ordersApi.reducer,
