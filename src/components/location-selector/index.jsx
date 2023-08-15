@@ -17,8 +17,8 @@ const LocationSelector = ({ onLocation }) => {
 
         if (status !== 'granted') {
             Alert.alert(
-                'Insufficient permissions!',
-                'You need to grant location permissions to use this app.',
+                '¡Permisos insuficientes!',
+                'Necesitas conceder permisos de ubicación para usar esta aplicación.',
                 [{ text: 'Okay' }]
             );
 
@@ -41,11 +41,12 @@ const LocationSelector = ({ onLocation }) => {
                 timeInterval: 5000,
             });
 
-            const { latitude, longitude } = location.coords;
+            if (location) {
+                const { latitude, longitude } = location.coords;
 
-            setPickedLocation({ lat: latitude, lng: longitude });
-            console.error('Error in onHandlerGetLocation:', error);
-            onLocation({ lat: latitude, lng: longitude });
+                setPickedLocation({ lat: latitude, lng: longitude });
+                onLocation({ lat: latitude, lng: longitude });
+            }
         } catch (error) {
             console.error('Error in onHandlerGetLocation:', error);
         }
@@ -63,20 +64,13 @@ const LocationSelector = ({ onLocation }) => {
                 location={pickedLocation}
                 style={styles.preview}
                 mapImage={mapPreviewUrlImage}>
-                <Text style={styles.text}>No location chosen yet!</Text>
+                <Text style={styles.text}>¡Aún no se ha elegido ninguna ubicación!</Text>
             </MapPreview>
-            <View style={styles.buttonContainer}>
-                <Button
-                    title="Get User Location"
-                    onPress={onHandlerGetLocation}
-                    color={COLORS.primary}
-                />
-                <Button
-                    title="Select on map"
-                    onPress={onHandlerGetLocation}
-                    color={COLORS.primary}
-                />
-            </View>
+            <Button
+                title="Obtener ubicación"
+                onPress={onHandlerGetLocation}
+                color={COLORS.primary}
+            />
         </View>
     );
 };

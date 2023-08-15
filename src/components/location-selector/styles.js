@@ -26,9 +26,4 @@ export const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: 'Inter-Bold',
     },
-    buttonContainer: {
-        flexDirection: 'row', // Para colocar los botones uno al lado del otro
-        justifyContent: 'space-between', // Opcionalmente, puedes ajustar la distribución horizontal
-        marginTop: 10, // Agrega margen superior para separar de otros elementos
-    },
 });
