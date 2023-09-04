@@ -18,7 +18,6 @@ const initialState = {
 const formReducer = (state, action) => {
     switch (action.type) {
         case UPDATE_FORM:
-            // eslint-disable-next-line no-case-declarations
             const { name, value, hasError, error, touched, isFormValid } = action.data;
             return {
                 ...state,
@@ -43,6 +42,7 @@ const Auth = () => {
     const headerTitle = isLogin ? 'Entrar' : 'Registrarse';
     const buttonTitle = isLogin ? 'Entrar' : 'Registrarse';
     const messageText = isLogin ? 'Crear cuenta' : 'Ingresar a mi cuenta';
+    const [errorMessage, setErrorMessage] = useState('');
 
     const [signIn, { data }] = useSignInMutation();
 
@@ -55,7 +55,31 @@ const Auth = () => {
                     email: formState.email.value,
                     password: formState.password.value,
                 });
-                if (result?.data) dispatch(setUser(result.data));
+                if (result?.data) {
+                    dispatch(setUser(result.data));
+                } else {
+                    setErrorMessage('Contraseña incorrecta');
+                    dispatchFormState({
+                        type: UPDATE_FORM,
+                        data: {
+                            name: 'email',
+                            value: '',
+                            hasError: true,
+                            error: 'Contraseña incorrecta',
+                            touched: true,
+                        },
+                    });
+                    dispatchFormState({
+                        type: UPDATE_FORM,
+                        data: {
+                            name: 'password',
+                            value: '',
+                            hasError: true,
+                            error: 'Contraseña incorrecta',
+                            touched: true,
+                        },
+                    });
+                }
             } else {
                 await signUp({ email: formState.email.value, password: formState.password.value });
             }
@@ -111,6 +135,7 @@ const Auth = () => {
                         <Text style={styles.buttonText}>{buttonTitle}</Text>
                     </TouchableOpacity>
                 </View>
+                {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
             </View>
         </View>
     );
